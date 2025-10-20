@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Ukesmeny{% endblock %}
+{% block content %}
+  <h2>Ukesmeny</h2>
+  <div class="grid">
+    {% for dag, retter in ukesmeny.items() %}
+      <article class="card">
+        <h3>{{ dag }}</h3>
+        <ul class="list">
+          {% for rett in retter %}
+            <li>
+              <div class="row">
+                <div>
+                  <strong>{{ rett.navn }}</strong>
+                  <div class="muted">{{ rett.beskrivelse }}</div>
+                </div>
+                <div class="pris">{{ rett.pris }} kr</div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </article>
+    {% endfor %}
+  </div>
+{% endblock %}

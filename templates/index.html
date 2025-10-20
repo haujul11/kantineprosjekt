@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Hjem • Akademiets kantine{% endblock %}
+{% block content %}
+  <section class="hero">
+    <h1>Velkommen til Akademiets skolekantine</h1>
+    <p>Her finner du ukens meny, faste varer og kontaktinformasjon.</p>
+    <a class="btn" href="{{ url_for('meny') }}">Se ukens meny</a>
+  </section>
+{% endblock %}

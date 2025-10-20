@@ -1,11 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="no">
-<head>
-    <meta charset="UTF-8">
-    <title>Kantina</title>
-</head>
-<body>
-    <h1>Hello, Kantina!</h1>
-    <p>Dette er din første Flask-side 🎉</p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Akademiets kantine{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    {% include "navbar.html" %}
+
+    <main class="container">
+      {% block content %}{% endblock %}
+    </main>
+
+    {% include "footer.html" %}
+  </body>
 </html>
+
