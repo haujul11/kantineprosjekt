@@ -1,54 +1,100 @@
+/* Basestil */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fdfdfd;
-    color: #222;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #1f2937;
+  background: #ffffff;
+  line-height: 1.55;
 }
 
-.nav {
-    background-color: #004080;
-    color: white;
-    padding: 1em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Linker og knapper */
+a { color: #0b5cab; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: #0b5cab;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
 }
+.btn:hover { filter: brightness(0.95); }
 
-.nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-}
-
-.nav a:hover {
-    text-decoration: underline;
-}
-
+/* Layout */
 .container {
-    padding: 2em;
+  width: min(1100px, 92vw);
+  margin: 24px auto 40px;
 }
 
+/* Nav */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 18px;
+  background: #0b5cab;
+  color: #fff;
+}
+.nav .brand {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+.nav .links a {
+  color: #fff;
+  margin-left: 18px;
+  font-weight: 500;
+}
+.nav .links a:hover { text-decoration: underline; }
+
+/* Footer */
 footer {
-    text-align: center;
-    padding: 1em;
-    background-color: #004080;
-    color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  margin-top: 40px;
+  padding: 14px 18px;
+  background: #0b5cab;
+  color: #fff;
+  text-align: center;
 }
 
-/* --- Ukesmeny --- */
+/* Hero (forside) */
+.hero {
+  margin: 28px 0 6px;
+}
+.hero h1 {
+  margin: 0 0 6px;
+  font-size: clamp(22px, 3.3vw, 34px);
+}
+.hero p { margin: 0 0 14px; }
+
+/* Seksjonstitler */
+h2 {
+  margin: 8px 0 18px;
+  font-size: clamp(20px, 2.8vw, 28px);
+}
+
+/* Meny-layout (deler mellom meny/varer) */
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+/* Kort */
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 4px 14px rgba(17, 24, 39, 0.06);
 }
 
 .menu-day {
-  margin: 0 0 .5rem 0;
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #0b5cab;
 }
 
 .menu-list {
@@ -58,54 +104,55 @@ footer {
 }
 
 .menu-item {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: .6rem 0;
-  border-bottom: 1px solid #eee;
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #f1f5f9;
+}
+.menu-item:first-child { border-top: 0; }
+
+/* Bilder */
+.menu-img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
 }
 
-.menu-item:last-child {
-  border-bottom: none;
+/* Info/tekst */
+.menu-info { min-width: 0; }
+.menu-name {
+  font-weight: 700;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.menu-desc {
+  color: #6b7280;
+  font-size: 14px;
 }
 
-.menu-info { min-width: 0; }             /* gjør at tekst brytes pent */
-.menu-name { font-weight: 600; }
-.menu-desc { color: #555; font-size: .95rem; }
-
+/* Pris */
 .menu-price {
   font-weight: 700;
-  white-space: nowrap;                    /* alltid på én linje */
-  margin-left: .5rem;
-  flex-shrink: 0;                         /* ikke krymp prisen */
+  color: #111827;
+  margin-left: 8px;
+  white-space: nowrap;
 }
 
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
+/* Responsiv justering */
+@media (max-width: 520px) {
+  .menu-item {
+    grid-template-columns: 56px 1fr;
+  }
+  .menu-price {
+    grid-column: 2 / -1;
+    justify-self: end;
+    margin-top: 4px;
+  }
 }
-.card { border: 1px solid #eee; border-radius: 8px; padding: 1rem; background:#fff; }
-.menu-list { list-style: none; margin: 0; padding: 0; }
-.menu-item { display: grid; grid-template-columns: 80px 1fr auto; gap: .75rem; align-items: center; padding: .6rem 0; border-bottom: 1px solid #eee; }
-.menu-item:last-child { border-bottom: 0; }
-
-.menu-img { width: 80px; height: 60px; object-fit: cover; border-radius: 6px; }
-.menu-card-img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; }
-
-.menu-info { min-width: 0; }
-.menu-name { font-weight: 700; }
-.menu-desc { color: #555; font-size: .95rem; }
-.menu-price { font-weight: 700; white-space: nowrap; }
-
-.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
-.card { border: 1px solid #eee; border-radius: 8px; padding: 1rem; background: #fff; }
-.menu-list { list-style: none; margin: 0; padding: 0; }
-.menu-item { display: grid; grid-template-columns: 80px 1fr auto; gap: .75rem; align-items: center; padding: .6rem 0; border-bottom: 1px solid #eee; }
-.menu-item:last-child { border-bottom: 0; }
-.menu-img { width: 80px; height: 60px; object-fit: cover; border-radius: 6px; }
-.menu-info { min-width: 0; }
-.menu-name { font-weight: 700; }
-.menu-desc { color: #555; font-size: .95rem; }
-.menu-price { font-weight: 700; white-space: nowrap; }
