@@ -1,0 +1,1 @@
+Et lite Flask-prosjekt som viser ukens meny, faste varer og kontaktinformasjon for skolens kantine.
