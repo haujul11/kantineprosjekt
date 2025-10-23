@@ -1,11 +1,11 @@
+
+{% endblock %}
 {% extends "base.html" %}
 {% block title %}Ukesmeny{% endblock %}
 {% block content %}
-
 <h2>Ukesmeny</h2>
 
 {% set dager = ['Mandag','Tirsdag','Onsdag','Torsdag','Fredag'] %}
-
 <div class="menu-grid">
   {% for dag in dager if dag in ukesmeny %}
     <article class="card">
@@ -13,6 +13,7 @@
       <ul class="menu-list">
         {% for rett in ukesmeny[dag] %}
           <li class="menu-item">
+            <img class="menu-img" src="{{ url_for('static', filename=rett.bilde) }}" alt="{{ rett.navn }}">
             <div class="menu-info">
               <div class="menu-name">{{ rett.navn }}</div>
               <div class="menu-desc">{{ rett.beskrivelse }}</div>
@@ -24,6 +25,5 @@
     </article>
   {% endfor %}
 </div>
-
 {% endblock %}
 
