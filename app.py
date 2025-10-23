@@ -48,7 +48,7 @@ def kontakt():
     kontaktinfo = {
         "telefon": "92 11 17 44",
         "epost": "julian@akademiet.no",
-        "adresse": "pilestredet 1, 0981 Byen"
+        "adresse": "pilestredet 1, 0981 Oslo"
     }
     return render_template("kontakt.html", kontakt=kontaktinfo)
 
