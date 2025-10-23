@@ -1,10 +1,19 @@
 {% extends "base.html" %}
 {% block title %}Faste varer{% endblock %}
 {% block content %}
-  <h2>Faste varer</h2>
-  <ul>
-    <li>Bagett ost & skinke – 35 kr</li>
-    <li>Kaffe – 15 kr</li>
-    <li>Kanelbolle – 25 kr</li>
-  </ul>
+<h2>Faste varer</h2>
+<div class="menu-grid">
+  {% for v in varer %}
+    <article class="card">
+      <img class="menu-card-img" src="{{ url_for('static', filename=v.bilde) }}" alt="{{ v.navn }}">
+      <div class="menu-item" style="border-bottom:0; padding-top:.6rem;">
+        <div class="menu-info">
+          <div class="menu-name">{{ v.navn }}</div>
+        </div>
+        <div class="menu-price">{{ v.pris }} kr</div>
+      </div>
+    </article>
+  {% endfor %}
+</div>
 {% endblock %}
+
