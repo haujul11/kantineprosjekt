@@ -39,3 +39,44 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+/* --- Ukesmeny --- */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.menu-day {
+  margin: 0 0 .5rem 0;
+}
+
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .6rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-info { min-width: 0; }             /* gjør at tekst brytes pent */
+.menu-name { font-weight: 600; }
+.menu-desc { color: #555; font-size: .95rem; }
+
+.menu-price {
+  font-weight: 700;
+  white-space: nowrap;                    /* alltid på én linje */
+  margin-left: .5rem;
+  flex-shrink: 0;                         /* ikke krymp prisen */
+}
