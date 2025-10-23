@@ -1,25 +1,29 @@
 {% extends "base.html" %}
 {% block title %}Ukesmeny{% endblock %}
 {% block content %}
-  <h2>Ukesmeny</h2>
-  <div class="grid">
-    {% for dag, retter in ukesmeny.items() %}
-      <article class="card">
-        <h3>{{ dag }}</h3>
-        <ul class="list">
-          {% for rett in retter %}
-            <li>
-              <div class="row">
-                <div>
-                  <strong>{{ rett.navn }}</strong>
-                  <div class="muted">{{ rett.beskrivelse }}</div>
-                </div>
-                <div class="pris">{{ rett.pris }} kr</div>
-              </div>
-            </li>
-          {% endfor %}
-        </ul>
-      </article>
-    {% endfor %}
-  </div>
+
+<h2>Ukesmeny</h2>
+
+{% set dager = ['Mandag','Tirsdag','Onsdag','Torsdag','Fredag'] %}
+
+<div class="menu-grid">
+  {% for dag in dager if dag in ukesmeny %}
+    <article class="card">
+      <h3 class="menu-day">{{ dag }}</h3>
+      <ul class="menu-list">
+        {% for rett in ukesmeny[dag] %}
+          <li class="menu-item">
+            <div class="menu-info">
+              <div class="menu-name">{{ rett.navn }}</div>
+              <div class="menu-desc">{{ rett.beskrivelse }}</div>
+            </div>
+            <div class="menu-price">{{ rett.pris }} kr</div>
+          </li>
+        {% endfor %}
+      </ul>
+    </article>
+  {% endfor %}
+</div>
+
 {% endblock %}
+
