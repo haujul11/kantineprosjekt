@@ -4,29 +4,29 @@ app = Flask(__name__)
 
 ukesmeny = {
     "Mandag": [
-        {"navn": "Tomatsuppe", "beskrivelse": "Serveres med makaroni og brød", "pris": 35},
-        {"navn": "Pasta bolognese", "beskrivelse": "Med kjøttsaus og revet parmesan", "pris": 49}
+        {"navn": "Tomatsuppe", "beskrivelse": "Serveres med makaroni og brød", "pris": 35, "bilde": "tomatsuppe.jpeg"},
+        {"navn": "Pasta bolognese", "beskrivelse": "Med kjøttsaus og revet parmesan", "pris": 49, "bilde": "pasta bolognese.jpeg"}
     ],
     "Tirsdag": [
-        {"navn": "Kyllingwrap", "beskrivelse": "Med salat og dressing", "pris": 45}
+        {"navn": "Kyllingwrap", "beskrivelse": "Med salat og dressing", "pris": 45, "bilde": "kyllingwrap.jpeg"}
     ],
     "Onsdag": [
-        {"navn": "Taco-tallerken", "beskrivelse": "Kjøttdeig, bønner og salsa", "pris": 55}
+        {"navn": "Taco-tallerken", "beskrivelse": "Kjøttdeig, bønner og salsa", "pris": 55, "bilde": "taco tallerken.jpeg"}
     ],
     "Torsdag": [
-        {"navn": "Fiskekaker", "beskrivelse": "Serveres med potetmos og gulrøtter", "pris": 49}
+        {"navn": "Fiskekaker", "beskrivelse": "Serveres med potetmos og gulrøtter", "pris": 49, "bilde": "fiskekaker.jpeg"}
     ],
     "Fredag": [
-        {"navn": "Pizza-slice", "beskrivelse": "Med ost og skinke", "pris": 35},
-        {"navn": "Burger", "beskrivelse": "150g burger med ost og salat", "pris": 59}
+        {"navn": "Pizza-slice", "beskrivelse": "Med ost og skinke", "pris": 35, "bilde": "pizza slice.jpeg"},
+        {"navn": "Burger", "beskrivelse": "150g burger med ost og salat", "pris": 59, "bilde": "burger.jpeg"}
     ]
 }
 
 varer = [
-    {"navn": "Bagett med ost og skinke", "pris": 35},
-    {"navn": "Smoothie", "pris": 30},
-    {"navn": "Kaffe", "pris": 15},
-    {"navn": "Kanelbolle", "pris": 25}
+    {"navn": "Bagett med ost og skinke", "pris": 35, "bilde": "baguett.jpeg"},
+    {"navn": "Smoothie", "pris": 30, "bilde": "smoothie.jpeg"},
+    {"navn": "Kaffe", "pris": 15, "bilde": "kaffe.jpeg"},
+    {"navn": "Kanelbolle", "pris": 25, "bilde": "kanelbolle.jpeg"}
 ]
 
 @app.route("/")
@@ -52,3 +52,4 @@ def kontakt():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
