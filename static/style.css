@@ -1,192 +1,191 @@
-/* ===== Farger og grunnstil (enkelt) ===== */
-:root{
-  --bg:#f4f4f5;      /* bakgrunn */
-  --text:#222;       /* hovedtekst */
-  --muted:#666;      /* dempet tekst */
-  --bar:#3a3a3a;     /* topp/bunn-linje (mørk grå) */
-  --card:#fff;       /* kortbakgrunn */
-  --line:#e7e7ea;    /* tynne linjer */
-  --accent:#1e73be;  /* liten aksent (lenker/knapp) */
+/* ====== Grunnoppsett ====== */
+:root {
+  --bg: #f6f7f8;          /* Lys bakgrunn */
+  --ink: #1f2937;         /* Tekstfarge */
+  --muted: #6b7280;       /* Lysere tekst */
+  --brand: #2563eb;       /* Kantineblå */
+  --brand-ink: #ffffff;   /* Hvit tekst på blå */
 }
 
-*{ box-sizing:border-box; }
-body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  color:var(--text);
-  background:var(--bg);
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Poppins", system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* ===== Toppmeny og footer ===== */
-.nav, footer{
-  background:var(--bar);
-  color:#fff;
-}
-.nav{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:12px 16px;
-}
-.nav a{ color:#fff; text-decoration:none; font-weight:700; margin-left:14px; }
-.nav a:hover{ text-decoration:underline; }
-
-footer{
-  position:fixed; left:0; right:0; bottom:0;
-  text-align:center; padding:10px 12px;
+/* ====== Navigasjonsfelt ====== */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(31,41,55,0.9); /* mørk grå med litt gjennomsiktighet */
+  color: white;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
 }
 
-/* ===== Innhold/wrapper ===== */
-.container{ padding:24px 16px 84px; } /* ekstra plass nederst for footeren */
-
-h1,h2{ margin:0 0 12px; }
-h2{ font-size:1.3rem; }
-
-/* ===== Kort-grid for ukesmeny ===== */
-.menu-grid{
-  display:grid;
-  gap:16px;
-  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+  font-weight: 600;
 }
 
-/* Selve kortet */
-.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:14px;
-  transition: box-shadow .15s ease;
-}
-.card:hover{ box-shadow:0 4px 14px rgba(0,0,0,.06); }
-
-.menu-day{
-  margin:0 0 8px;
-  color:var(--muted);
-  font-weight:700;
+.nav a:hover {
+  text-decoration: underline;
 }
 
-/* Liste over retter i ett kort */
-.menu-list{ list-style:none; margin:0; padding:0; border-top:1px solid var(--line); }
-.menu-item{
-  display:flex; align-items:center; gap:12px;
-  padding:10px 0;
-  border-bottom:1px solid var(--line);
-}
-.menu-item:last-child{ border-bottom:0; }
-
-/* Bilde – tekst – pris */
-.menu-img{
-  width:84px; height:64px;
-  object-fit:cover; border-radius:8px; flex:0 0 84px;
-}
-.menu-info{ flex:1; min-width:0; }
-.menu-name{ font-weight:700; }
-.menu-desc{ color:var(--muted); font-size:.95rem; }
-
-.menu-price{
-  font-weight:700;
-  white-space:nowrap;         /* slik at prisen ikke brytes */
-  margin-left:8px;
+/* ====== Footer ====== */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(31,41,55,0.95);
+  color: white;
+  font-size: 0.9rem;
 }
 
-/* Enkel knappstil (brukes på forsiden “Se ukens meny”) */
-.btn{
-  display:inline-block;
-  background:var(--accent); color:#fff;
-  padding:8px 12px; border-radius:6px; text-decoration:none; font-weight:700;
-}
-.btn:hover{ filter:brightness(0.95); }
-
-/* ===== Mobil-småjusteringer ===== */
-@media (max-width:600px){
-  .menu-img{ width:72px; height:56px; flex-basis:72px; }
-}
-/* ========== Forside / HERO ========== */
-body{ font-family: "Poppins", Arial, Helvetica, sans-serif; }
-
-.hero{
-  /* bakgrunnsbilde leveres fra inline style via CSS var */
-  --h: clamp(320px, 52vh, 520px);
+/* ====== Forside / Hero ====== */
+.hero {
   position: relative;
-  height: var(--h);
-  border-radius: 14px;
-  overflow: hidden;
-  margin: 8px 0 18px;
-  background: #ddd center/cover no-repeat;
-  background-image: var(--hero, none);
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+  padding: 4rem 1.25rem;
+  color: #fff;
+  background: center/cover no-repeat var(--hero, none);
 }
 
-/* Mørk skygge for bedre kontrast på tekst */
-.hero__shade{
-  position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55));
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(17,24,39,0.65), rgba(17,24,39,0.4));
 }
 
-.hero__content{
-  position:relative; z-index:1;
-  color:#fff;
-  height:100%;
-  display:flex; flex-direction:column; justify-content:center;
-  padding: clamp(18px, 4vw, 40px);
-  max-width: 980px;
+.hero__inner {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
 }
 
-.hero h1{
-  line-height:1.15;
-  font-size: clamp(1.8rem, 4.2vw, 3rem);
-  font-weight:800;
-  margin:0 0 8px;
-}
-.hero h1 span{
-  display:block;
-  font-weight:600;
-  opacity:.95;
-}
-.hero p{
-  margin:0 0 16px;
-  font-size: clamp(1rem, 1.7vw, 1.15rem);
-  opacity:.95;
+.eyebrow {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: 0.9;
+  margin: 0 0 .25rem;
 }
 
-.hero__cta{ display:flex; gap:10px; flex-wrap:wrap; }
+.hero h1 {
+  font-size: clamp(2rem, 4vw + .5rem, 3rem);
+  line-height: 1.1;
+  font-weight: 700;
+  margin: 0 0 .75rem;
+}
 
-/* Knapper – bruker eksisterende .btn og to varianter */
-.btn{
-  display:inline-block;
-  padding:10px 14px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:700;
-  transition:transform .06s ease, filter .15s ease, background .15s ease;
+.lead {
+  font-size: clamp(1rem, .8vw + .8rem, 1.175rem);
+  color: #e5e7eb;
+  margin: 0 0 1.5rem;
 }
-.btn:active{ transform:translateY(1px); }
 
-.btn--primary{
-  background:#1e73be;
-  color:#fff;
+/* ====== Knapper ====== */
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-.btn--primary:hover{ filter:brightness(.95); }
 
-.btn--ghost{
-  background:transparent;
-  color:#fff;
-  border:2px solid rgba(255,255,255,.85);
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  border: 1px solid rgba(255,255,255,0.2);
 }
-.btn--ghost:hover{ background:rgba(255,255,255,.12); }
 
-/* ========== Små fordelskort ========== */
-.features{
-  display:grid; gap:14px;
-  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-  margin: 6px 0 8px;
+.btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.22);
 }
-.feature{
-  background:#fff;
-  border:1px solid #e7e7ea;
-  border-radius:12px;
-  padding:16px;
-  text-align:center;
-  transition: box-shadow .15s ease, transform .06s ease;
+
+.btn-primary {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--brand-ink);
 }
-.feature:hover{ box-shadow:0 8px 22px rgba(0,0,0,.06); transform:translateY(-2px); }
-.feature__emoji{ font-size:28px; }
-.feature h3{ margin:8px 0 4px; font-weight:700; }
-.feature p{ margin:0; color:#666; font-size:.95rem; }
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+/* ====== Ukesmeny / Kortvisning ====== */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.menu-item {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-4px);
+}
+
+.menu-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.menu-name {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.menu-desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.menu-price {
+  font-weight: 700;
+  color: var(--brand);
+}
+
+/* ====== Kontakt-side ====== */
+.kontakt {
+  padding: 2rem;
+  text-align: center;
+}
+
+.kontakt h2 {
+  margin-bottom: 1rem;
+}
+
+.kontakt p {
+  color: var(--muted);
+}
