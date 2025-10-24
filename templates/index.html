@@ -1,12 +1,26 @@
 {% extends "base.html" %}
-
 {% block title %}Hjem • Akademiets kantine{% endblock %}
 
 {% block content %}
-<section class="hero">
-  <h1>Velkommen til Akademiets skolekantine</h1>
-  <p>Her finner du ukens meny, faste varer og kontaktinformasjon.</p>
-  <a class="btn" href="{{ url_for('meny') }}">Se ukens meny</a>
+<section class="hero" style="--hero:url('{{ url_for('static', filename='hero.jpg') }}')">
+  <div class="hero__inner">
+    <h1>Velkommen til Akademiets skolekantine</h1>
+    <p>God og rimelig mat – laget for en bra skoledag. Se ukens meny, faste varer og kontaktinfo.</p>
+    <a class="btn btn--lg" href="{{ url_for('meny') }}">Se ukens meny</a>
+  </div>
+</section>
+
+<section class="feature-strip">
+  <div class="feature">
+    🥗 Friske råvarer
+  </div>
+  <div class="feature">
+    💸 Studentvennlige priser
+  </div>
+  <div class="feature">
+    ⏰ Åpent 09–14
+  </div>
 </section>
 {% endblock %}
+
 
