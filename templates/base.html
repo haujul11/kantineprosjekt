@@ -1,25 +1,15 @@
-<!doctype html>
-<html lang="no">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{% block title %}Akademiets kantine{% endblock %}</title>
 
-  <!-- Google-font: Poppins (ren og energisk) -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Google Fonts: Poppins (ren og lesbar) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-  {% include "navbar.html" %}
-
-  <main class="container">
-    {% block content %}{% endblock %}
-  </main>
-
-  {% include "footer.html" %}
-</body>
-</html>
 
 
 
