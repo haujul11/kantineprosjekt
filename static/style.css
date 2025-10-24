@@ -1,159 +1,164 @@
-/* ===== Grunnoppsett ===== */
+/* -------------------------------------------------
+   Enkelt, ryddig og lett å forklare
+--------------------------------------------------*/
 :root{
-  --ink:#1f2937;
-  --muted:#6b7280;
-  --bg:#f6f7f8;
-  --brand:#2563eb;
-  --brand-ink:#fff;
+  --bg: #f6f7fb;
+  --text: #131722;
+  --muted: #5c6470;
+  --brand: #2d63ff;
+  --brand-700:#234dd1;
+  --card: #ffffff;
+  --nav: #0c1424;
+  --shadow: 0 4px 18px rgba(0,0,0,.08);
+  --radius: 14px;
 }
 
+/* Reset & base */
 *{box-sizing:border-box}
-html,body{
-  margin:0; padding:0;
-  background:var(--bg);
-  color:var(--ink);
-  font-family:"Poppins",system-ui,sans-serif;
+html,body{margin:0;padding:0}
+body{
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
 }
 
-/* ===== Nav & footer ===== */
-.nav{
-  position:sticky; top:0;
-  display:flex; justify-content:space-between; align-items:center;
-  background:#111827; color:#fff;
-  padding:1rem 2rem;
-}
-.nav a{color:#fff; text-decoration:none; margin-left:1rem; font-weight:600}
-.nav a:hover{text-decoration:underline}
-
-footer{
-  text-align:center; padding:1rem;
-  background:#111827; color:#fff; font-size:.9rem;
-}
-
-/* ===== Beholder ===== */
-.container{padding:0}
-
-/* ===== Hero (forside) ===== */
-.hero{
-  min-height:60vh;
-  display:grid; place-items:center;
-  padding:4rem 1.25rem;
+/* Top-nav */
+nav{
+  position: sticky; top:0; z-index: 50;
+  background: var(--nav);
   color:#fff;
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
 }
-.hero__inner{max-width:900px; width:100%; text-align:center}
-.eyebrow{letter-spacing:.08em; text-transform:uppercase; font-weight:600; opacity:.9; margin:0 0 .25rem}
-.hero h1{font-size:clamp(2rem,4vw + .5rem,3rem); line-height:1.1; font-weight:700; margin:.25rem 0 .75rem}
-.lead{font-size:clamp(1rem,.8vw + .8rem,1.15rem); color:#e5e7eb; margin:0 0 1.5rem}
+nav .container{
+  max-width: 1200px; margin:0 auto;
+  padding: 14px 20px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+nav a{ color:#fff; text-decoration:none; font-weight:600; margin-left:24px; }
+nav a:hover{ opacity:.85 }
 
-/* ===== Knapper ===== */
-.actions{display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap}
-.btn{
-  display:inline-flex; align-items:center; justify-content:center;
-  padding:.7rem 1rem; border-radius:.75rem;
-  background:rgba(255,255,255,.14); color:#fff; text-decoration:none; font-weight:600;
-  border:1px solid rgba(255,255,255,.2); backdrop-filter:blur(4px);
-  transition:transform .15s, background .15s, box-shadow .15s;
+/* Felles container */
+.container-page{
+  max-width:1200px; margin:0 auto; padding:28px 20px;
 }
-.btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.22)}
-.btn-primary{background:var(--brand); border-color:var(--brand); color:var(--brand-ink)}
-.btn-primary:hover{background:#1d4ed8}
 
-/* ===== Enkle kort for meny/varer (om du bruker) ===== */
-.menu-grid{
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:1rem; padding:2rem;
+/* Footer */
+footer{
+  background: var(--nav); color:#cfd6ff;
+  text-align:center; padding:16px 12px;
 }
-.menu-item{
-  background:#fff; border-radius:10px; padding:1rem; text-align:center;
-  box-shadow:0 2px 5px rgba(0,0,0,.08); transition:transform .2s;
-}
-.menu-item:hover{transform:translateY(-4px)}
-.menu-img{width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem}
-.menu-name{font-weight:700; margin:.25rem 0}
-.menu-desc{color:var(--muted); font-size:.95rem; margin:.25rem 0 .5rem}
-.menu-price{font-weight:700; color:var(--brand)}
 
-/* ---------- HERO (forsiden) ---------- */
+/* ------------------ HERO (forside) ------------------ */
+/* Bruker statisk url – ingen Jinja-variabel nødvendig */
 .hero{
-  min-height: 64vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding: clamp(5rem, 10vw, 8rem) 1.25rem;
-  background-size: cover;
-  background-position: center;
-  border-radius: 16px;
-  margin: 1.5rem 0;
-  color: #fff;
+  position: relative;
+  min-height: 70vh;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; color:#fff;
+  background: center/cover no-repeat url("/static/kantine.jpeg");
+  /* ingen blur – bare en myk mørk overlay for kontrast */
 }
-.hero__inner{ max-width: 900px; }
-.eyebrow{ letter-spacing:.12em; text-transform:uppercase; opacity:.9; }
-.hero h1{ font-size: clamp(2rem, 4.2vw, 3rem); margin:.25rem 0 1rem; }
-.lead{ font-size: clamp(1rem, 2.3vw, 1.125rem); opacity:.95; }
+.hero::after{
+  content:""; position:absolute; inset:0;
+  background: rgba(8, 14, 26, 0.38);   /* lett nedtoning */
+}
+.hero-inner{
+  position:relative; z-index:1;
+  max-width: 900px; padding: 16px;
+}
+.hero h3{
+  margin:0 0 6px; font-size:14px; letter-spacing:.2em;
+  text-transform:uppercase; opacity:.9;
+}
+.hero h1{
+  margin:0 0 12px; font-size: clamp(28px, 4.5vw, 48px);
+  font-weight:800; line-height:1.15;
+}
+.hero p{
+  margin:0 0 22px; color:#e9edff;
+}
 
-.hero__cta{ display:flex; gap:.75rem; justify-content:center; margin-top:1.25rem; }
+/* Knapper */
 .btn{
-  background:#2d61ff; color:#fff; font-weight:600;
-  padding:.8rem 1.1rem; border-radius:10px; text-decoration:none;
-  transition:transform .08s ease, background .2s ease;
+  display:inline-block; padding:12px 18px; border-radius: 10px;
+  font-weight:700; text-decoration:none; transition:.18s ease-in-out;
+  border:1px solid transparent;
 }
-.btn:hover{ transform: translateY(-1px); background:#214be0; }
-.btn--ghost{ background:transparent; border:1.5px solid #fff; color:#fff; }
-.btn--ghost:hover{ background:rgba(255,255,255,.12); }
+.btn-primary{
+  background: var(--brand); color:#fff;
+}
+.btn-primary:hover{
+  background: var(--brand-700); transform: translateY(-1px);
+}
+.btn-secondary{
+  background: transparent; color:#fff;
+  border-color: rgba(255,255,255,.45);
+}
+.btn-secondary:hover{
+  background: rgba(255,255,255,.06);
+}
 
-/* ---------- GRID / CARD (deles av meny & varer) ---------- */
+/* ------------------ TITLER ------------------ */
+.section-title{
+  font-size: clamp(22px, 3.2vw, 30px);
+  margin: 8px 0 18px; font-weight:800;
+}
+
+/* ------------------ KORT / GRID (ukesmeny + faste varer) ------------------ */
 .menu-grid{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.1rem;
-  margin-top: 1rem;
+  gap: 18px;
 }
+
+/* Selve kortet */
+.menu-item{
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* Produktbilde – mindre «zoom»: høyere utsnitt, objekt sentrert */
+.menu-img, .menu-card-img{
+  display:block; width:100%;
+  height: 200px;                 /* var ofte 230–260 – litt lavere = mindre zoom */
+  object-fit: cover;             /* fyller kortet men ikke «ekstra-zoom» */
+  object-position: center;       /* midt i motivet */
+}
+
+/* Innhold under bildet */
+.menu-info{
+  padding: 14px 16px;
+}
+.menu-name{
+  font-weight:700; margin:0 0 6px;
+}
+.menu-desc{
+  margin:0 0 8px; color: var(--muted);
+  font-size: 0.95rem;
+}
+.menu-price{
+  font-weight:800; color: var(--brand);
+}
+
+/* Kort brukt på oversikter der pris ligger i en bunn-linje */
 .card{
-  background:#fff; border:1px solid #e9edf3; border-radius:14px;
-  overflow:hidden; box-shadow: 0 3px 14px rgba(0,0,0,.04);
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow:hidden;
 }
-.card__img{
-  width:100%; height: 180px; object-fit: cover; object-position: center;
-  display:block;
+.card .row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 16px; border-top:1px solid #eef0f6;
 }
-.card__body{ padding: .9rem 1rem; display:flex; justify-content:space-between; align-items:baseline; gap: .75rem; }
-.card__title{ font-weight:700; line-height:1.2; }
-.card__price{ font-weight:700; white-space:nowrap; color:#2d61ff; }
+.card .title{ font-weight:800 }
+.card .price{ font-weight:800; color:var(--brand) }
 
-/* Litt mindre zoom for faste varer */
-.card__img--varer{
-  height: 160px;
-  object-fit: cover;    /* behold pen beskjæring */
-  object-position: 50% 40%;  /* flytt litt opp for å vise mer av varen */
-}
-
-/* Liten responsiv finpuss */
-@media (max-width: 560px){
-  .hero{ min-height: 56vh; }
-  .card__img{ height: 160px; }
-  .card__img--varer{ height: 150px; }
-}
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.btn-secondary {
-  background-color: transparent;
-  border: 2px solid white;
-}
-
-.btn-secondary:hover {
-  background-color: white;
-  color: #1e293b;
-}
-
-/* Mindre blur på hero-bilde */
-.hero::after {
-  background: rgba(0, 0, 0, 0.25); /* tidligere var 0.35 */
+/* -------------- Små justeringer responsivt -------------- */
+@media (max-width:600px){
+  .hero{ min-height: 62vh; }
+  nav .container{ padding:12px 16px }
+  .btn{ padding:10px 14px }
 }
