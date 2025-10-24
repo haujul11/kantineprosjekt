@@ -75,3 +75,65 @@ footer{
 .menu-name{font-weight:700; margin:.25rem 0}
 .menu-desc{color:var(--muted); font-size:.95rem; margin:.25rem 0 .5rem}
 .menu-price{font-weight:700; color:var(--brand)}
+
+/* ---------- HERO (forsiden) ---------- */
+.hero{
+  min-height: 64vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding: clamp(5rem, 10vw, 8rem) 1.25rem;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  margin: 1.5rem 0;
+  color: #fff;
+}
+.hero__inner{ max-width: 900px; }
+.eyebrow{ letter-spacing:.12em; text-transform:uppercase; opacity:.9; }
+.hero h1{ font-size: clamp(2rem, 4.2vw, 3rem); margin:.25rem 0 1rem; }
+.lead{ font-size: clamp(1rem, 2.3vw, 1.125rem); opacity:.95; }
+
+.hero__cta{ display:flex; gap:.75rem; justify-content:center; margin-top:1.25rem; }
+.btn{
+  background:#2d61ff; color:#fff; font-weight:600;
+  padding:.8rem 1.1rem; border-radius:10px; text-decoration:none;
+  transition:transform .08s ease, background .2s ease;
+}
+.btn:hover{ transform: translateY(-1px); background:#214be0; }
+.btn--ghost{ background:transparent; border:1.5px solid #fff; color:#fff; }
+.btn--ghost:hover{ background:rgba(255,255,255,.12); }
+
+/* ---------- GRID / CARD (deles av meny & varer) ---------- */
+.menu-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.1rem;
+  margin-top: 1rem;
+}
+.card{
+  background:#fff; border:1px solid #e9edf3; border-radius:14px;
+  overflow:hidden; box-shadow: 0 3px 14px rgba(0,0,0,.04);
+}
+.card__img{
+  width:100%; height: 180px; object-fit: cover; object-position: center;
+  display:block;
+}
+.card__body{ padding: .9rem 1rem; display:flex; justify-content:space-between; align-items:baseline; gap: .75rem; }
+.card__title{ font-weight:700; line-height:1.2; }
+.card__price{ font-weight:700; white-space:nowrap; color:#2d61ff; }
+
+/* Litt mindre zoom for faste varer */
+.card__img--varer{
+  height: 160px;
+  object-fit: cover;    /* behold pen beskjæring */
+  object-position: 50% 40%;  /* flytt litt opp for å vise mer av varen */
+}
+
+/* Liten responsiv finpuss */
+@media (max-width: 560px){
+  .hero{ min-height: 56vh; }
+  .card__img{ height: 160px; }
+  .card__img--varer{ height: 150px; }
+}
