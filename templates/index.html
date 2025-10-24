@@ -2,47 +2,21 @@
 {% block title %}Hjem • Akademiets kantine{% endblock %}
 
 {% block content %}
+<section class="hero" style="--hero:url('{{ url_for('static', filename='kantine.jpeg') }}')">
+  <div class="hero__inner">
+    <p class="eyebrow">Velkommen!</p>
+    <h1>Akademiets skolekantine</h1>
+    <p class="lead">God og rimelig mat – se ukens meny, faste varer og kontaktinformasjon.</p>
 
-<!-- HERO: stort blikkfang med bilde og tydelig knapp -->
-<section class="hero"
-  style="--hero:url('{{ url_for('static', filename='hero.jpg') }}')">
-  <div class="hero__shade"></div>
-  <div class="hero__content">
-    <h1>
-      God mat, raskt og rimelig
-      <span>— rett fra kantina!</span>
-    </h1>
-    <p>Se ukens retter, faste favoritter og kontaktinfo.</p>
-
-    <div class="hero__cta">
-      <a class="btn btn--primary" href="{{ url_for('meny') }}">Se ukens meny</a>
-      <a class="btn btn--ghost" href="{{ url_for('varer_side') }}">Faste varer</a>
+    <div class="actions">
+      <a class="btn btn-primary" href="{{ url_for('meny') }}">Se ukens meny</a>
+      <a class="btn" href="{{ url_for('varer_side') }}">Faste varer</a>
+      <a class="btn" href="{{ url_for('kontakt') }}">Kontakt</a>
     </div>
   </div>
 </section>
-
-<!-- Tre korte fordeler -->
-<section class="features">
-  <article class="feature">
-    <div class="feature__emoji">🥗</div>
-    <h3>Variert</h3>
-    <p>Ukesmeny med både klassikere og nye retter.</p>
-  </article>
-
-  <article class="feature">
-    <div class="feature__emoji">⚡</div>
-    <h3>Raskt</h3>
-    <p>Lagget ferdig – du slipper lang ventetid.</p>
-  </article>
-
-  <article class="feature">
-    <div class="feature__emoji">💸</div>
-    <h3>Studentvennlig</h3>
-    <p>Gode priser hver dag, hele uken.</p>
-  </article>
-</section>
-
 {% endblock %}
+
 
 
 
