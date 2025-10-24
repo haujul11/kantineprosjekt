@@ -1,100 +1,67 @@
-/* Basestil */
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
+/* ===== Generell stil ===== */
 body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  color: #1f2937;
-  background: #ffffff;
-  line-height: 1.55;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #222;
 }
 
-/* Linker og knapper */
-a { color: #0b5cab; text-decoration: none; }
-a:hover { text-decoration: underline; }
-.btn {
-  display: inline-block;
-  padding: 10px 16px;
-  border-radius: 10px;
-  background: #0b5cab;
-  color: #fff;
-  font-weight: 600;
-  text-decoration: none;
-}
-.btn:hover { filter: brightness(0.95); }
-
-/* Layout */
-.container {
-  width: min(1100px, 92vw);
-  margin: 24px auto 40px;
-}
-
-/* Nav */
+/* ===== Navigasjonsmeny ===== */
 .nav {
+  background-color: #444;
+  color: white;
+  padding: 1em;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 12px 18px;
-  background: #0b5cab;
-  color: #fff;
+  align-items: center;
 }
-.nav .brand {
-  color: #fff;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-}
-.nav .links a {
-  color: #fff;
-  margin-left: 18px;
-  font-weight: 500;
-}
-.nav .links a:hover { text-decoration: underline; }
 
-/* Footer */
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Container ===== */
+.container {
+  padding: 2em;
+}
+
+/* ===== Footer ===== */
 footer {
-  margin-top: 40px;
-  padding: 14px 18px;
-  background: #0b5cab;
-  color: #fff;
   text-align: center;
+  padding: 1em;
+  background-color: #444;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
-/* Hero (forside) */
-.hero {
-  margin: 28px 0 6px;
-}
-.hero h1 {
-  margin: 0 0 6px;
-  font-size: clamp(22px, 3.3vw, 34px);
-}
-.hero p { margin: 0 0 14px; }
-
-/* Seksjonstitler */
-h2 {
-  margin: 8px 0 18px;
-  font-size: clamp(20px, 2.8vw, 28px);
-}
-
-/* Meny-layout (deler mellom meny/varer) */
+/* ===== Ukesmeny ===== */
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
 }
 
-/* Kort */
 .card {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  padding: 14px;
-  box-shadow: 0 4px 14px rgba(17, 24, 39, 0.06);
+  background: white;
+  border-radius: 10px;
+  padding: 1.2rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .menu-day {
-  margin: 0 0 10px;
-  font-size: 18px;
-  color: #0b5cab;
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 0.5rem;
 }
 
 .menu-list {
@@ -103,56 +70,57 @@ h2 {
   padding: 0;
 }
 
+/* ===== Retter i menyen ===== */
 .menu-item {
   display: grid;
-  grid-template-columns: 72px 1fr auto;
-  gap: 12px;
+  grid-template-columns: 90px 1fr auto;
   align-items: center;
-  padding: 10px 0;
-  border-top: 1px solid #f1f5f9;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #ddd;
 }
-.menu-item:first-child { border-top: 0; }
 
-/* Bilder */
+.menu-item:last-child {
+  border-bottom: none;
+}
+
 .menu-img {
-  width: 72px;
-  height: 72px;
+  width: 90px;
+  height: 70px;
+  border-radius: 8px;
   object-fit: cover;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  background: #f8fafc;
 }
 
-/* Info/tekst */
-.menu-info { min-width: 0; }
+/* ===== Tekst og pris ===== */
+.menu-info {
+  min-width: 0;
+}
+
 .menu-name {
   font-weight: 700;
-  margin-bottom: 2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 1rem;
+  white-space: normal; /* Viser hele teksten! */
 }
+
 .menu-desc {
-  color: #6b7280;
-  font-size: 14px;
+  color: #666;
+  font-size: 0.9rem;
 }
 
-/* Pris */
 .menu-price {
-  font-weight: 700;
-  color: #111827;
-  margin-left: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #333;
   white-space: nowrap;
 }
 
-/* Responsiv justering */
-@media (max-width: 520px) {
+/* ===== Responsiv design ===== */
+@media (max-width: 600px) {
   .menu-item {
-    grid-template-columns: 56px 1fr;
+    grid-template-columns: 70px 1fr;
   }
   .menu-price {
-    grid-column: 2 / -1;
     justify-self: end;
-    margin-top: 4px;
   }
 }
+
