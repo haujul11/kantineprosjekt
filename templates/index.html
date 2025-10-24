@@ -1,22 +1,22 @@
 {% extends "base.html" %}
 {% block title %}Hjem • Akademiets kantine{% endblock %}
-{% block content %}
 
+{% block content %}
 <section class="hero">
-  <h3>Velkommen!</h3>
-  <h1>Akademiets skolekantine</h1>
-  <p>God og rimelig mat – se ukens meny, faste varer og kontaktinformasjon.</p>
-  
-  <div class="hero-buttons">
-    <a href="{{ url_for('meny') }}" class="btn">Se ukens meny</a>
-    <a href="{{ url_for('varer_side') }}" class="btn btn-secondary">Faste varer</a>
-    <a href="{{ url_for('kontakt') }}" class="btn btn-secondary">Kontakt</a>
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <h3>Velkommen!</h3>
+    <h1>Akademiets skolekantine</h1>
+    <p>God og rimelig mat – se ukens meny, faste varer og kontaktinformasjon.</p>
+
+    <div class="hero-buttons">
+      <a href="{{ url_for('meny') }}" class="btn btn-primary">Se ukens meny</a>
+      <a href="{{ url_for('varer_side') }}" class="btn btn-ghost">Faste varer</a>
+      <a href="{{ url_for('kontakt') }}" class="btn btn-ghost">Kontakt</a>
+    </div>
   </div>
 </section>
-
 {% endblock %}
-
-
 
 
 
