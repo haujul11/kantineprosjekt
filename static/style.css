@@ -1,5 +1,47 @@
-/* --- HERO (forside) – skarpt bilde, myk gradient, tydelig tekst/knapper --- */
-.hero{
+/* === GENERELT === */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: #f4f5f7;
+  color: #222;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+nav {
+  background-color: #0d1324;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 10px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #0d1324;
+  color: white;
+  font-size: 0.9rem;
+}
+
+/* === HERO / FORSIDE === */
+.hero {
   position: relative;
   min-height: 70vh;
   display: flex;
@@ -7,67 +49,127 @@
   justify-content: center;
   overflow: hidden;
 }
-.hero-bg{
-  position: absolute; inset: 0;
+.hero-bg {
+  position: absolute;
+  inset: 0;
   background: url("/static/kantine.jpeg") center/cover no-repeat;
-  transform: scale(1.02);           /* litt «parallax»-følelse */
 }
-.hero::after{
-  content:""; position:absolute; inset:0;
-  /* ingen blur, bare lett mørk gradient for kontrast */
-  background: linear-gradient(
-    to bottom,
-    rgba(12, 20, 36, 0.25),
-    rgba(12, 20, 36, 0.35)
-  );
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(13,19,36,0.25), rgba(13,19,36,0.35));
 }
-.hero-inner{
-  position: relative; z-index: 1;
-  text-align: center; color: #fff;
-  max-width: 900px; padding: 24px;
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  max-width: 900px;
+  padding: 24px;
 }
-.hero h3{
-  margin: 0 0 8px;
-  font-size: 14px; letter-spacing: .20em;
+.hero h3 {
+  font-size: 14px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  opacity: .95;
+  opacity: 0.9;
 }
-.hero h1{
+.hero h1 {
   margin: 0 0 10px;
-  font-size: clamp(28px, 4.2vw, 56px);
-  font-weight: 800; line-height: 1.12;
-  text-shadow: 0 2px 14px rgba(0,0,0,.28);
+  font-size: clamp(28px, 4vw, 56px);
+  font-weight: 800;
 }
-.hero p{
-  margin: 0 0 20px;
-  color: #eef2ff; font-weight: 500;
+.hero p {
+  margin-bottom: 20px;
+  color: #eef2ff;
+  font-weight: 500;
 }
-.hero-buttons{
-  display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+.hero-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-/* Knappestiler (matchende resten av siden) */
-.btn{
+/* KNAPPER */
+.btn {
   display: inline-block;
   padding: 12px 18px;
   border-radius: 12px;
   font-weight: 700;
   text-decoration: none;
-  transition: .18s ease-in-out;
+  transition: 0.18s ease-in-out;
   border: 1px solid transparent;
 }
-.btn-primary{
-  background: #2d63ff; color: #fff;
+.btn-primary {
+  background: #2d63ff;
+  color: #fff;
 }
-.btn-primary:hover{
-  background: #234dd1; transform: translateY(-1px);
+.btn-primary:hover {
+  background: #234dd1;
 }
-.btn-ghost{
+.btn-ghost {
   background: rgba(255,255,255,.12);
   color: #fff;
   border-color: rgba(255,255,255,.45);
-  backdrop-filter: saturate(140%) blur(2px);
+  backdrop-filter: blur(2px);
 }
-.btn-ghost:hover{
+.btn-ghost:hover {
   background: rgba(255,255,255,.18);
 }
+
+/* === MENY OG VARER === */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.menu-img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain; /* <- viktig! viser hele bildet */
+  background-color: #fafafa;
+}
+
+.menu-info {
+  padding: 1rem;
+}
+.menu-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+.menu-desc {
+  color: #555;
+  font-size: 0.9rem;
+}
+.menu-price {
+  font-weight: 700;
+  color: #2d63ff;
+  margin-top: 0.5rem;
+}
+
+/* === RESPONSIVITET === */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+  .hero {
+    min-height: 60vh;
+  }
+}
+
