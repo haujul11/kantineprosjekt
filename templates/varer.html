@@ -1,17 +1,17 @@
 {% extends "base.html" %}
-
 {% block title %}Faste varer{% endblock %}
-
 {% block content %}
 <h2>Faste varer</h2>
 
 <div class="menu-grid">
-  {% for vare in varer %}
+  {% for v in varer %}
   <article class="card">
-    <img class="menu-img" src="{{ url_for('static', filename=vare.bilde) }}" alt="{{ vare.navn }}">
-    <div class="menu-info">
-      <div class="menu-name">{{ vare.navn }}</div>
-      <div class="menu-price">{{ vare.pris }} kr</div>
+    <img class="card__img card__img--varer"
+         src="{{ url_for('static', filename=v.bilde) }}"
+         alt="{{ v.navn }}">
+    <div class="card__body">
+      <div class="card__title">{{ v.navn }}</div>
+      <div class="card__price">{{ v.pris }} kr</div>
     </div>
   </article>
   {% endfor %}
