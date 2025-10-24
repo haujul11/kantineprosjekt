@@ -2,25 +2,47 @@
 {% block title %}Hjem • Akademiets kantine{% endblock %}
 
 {% block content %}
-<section class="hero" style="--hero:url('{{ url_for('static', filename='hero.jpg') }}')">
-  <div class="hero__inner">
-    <h1>Velkommen til Akademiets skolekantine</h1>
-    <p>God og rimelig mat – laget for en bra skoledag. Se ukens meny, faste varer og kontaktinfo.</p>
-    <a class="btn btn--lg" href="{{ url_for('meny') }}">Se ukens meny</a>
+
+<!-- HERO: stort blikkfang med bilde og tydelig knapp -->
+<section class="hero"
+  style="--hero:url('{{ url_for('static', filename='hero.jpg') }}')">
+  <div class="hero__shade"></div>
+  <div class="hero__content">
+    <h1>
+      God mat, raskt og rimelig
+      <span>— rett fra kantina!</span>
+    </h1>
+    <p>Se ukens retter, faste favoritter og kontaktinfo.</p>
+
+    <div class="hero__cta">
+      <a class="btn btn--primary" href="{{ url_for('meny') }}">Se ukens meny</a>
+      <a class="btn btn--ghost" href="{{ url_for('varer_side') }}">Faste varer</a>
+    </div>
   </div>
 </section>
 
-<section class="feature-strip">
-  <div class="feature">
-    🥗 Friske råvarer
-  </div>
-  <div class="feature">
-    💸 Studentvennlige priser
-  </div>
-  <div class="feature">
-    ⏰ Åpent 09–14
-  </div>
+<!-- Tre korte fordeler -->
+<section class="features">
+  <article class="feature">
+    <div class="feature__emoji">🥗</div>
+    <h3>Variert</h3>
+    <p>Ukesmeny med både klassikere og nye retter.</p>
+  </article>
+
+  <article class="feature">
+    <div class="feature__emoji">⚡</div>
+    <h3>Raskt</h3>
+    <p>Lagget ferdig – du slipper lang ventetid.</p>
+  </article>
+
+  <article class="feature">
+    <div class="feature__emoji">💸</div>
+    <h3>Studentvennlig</h3>
+    <p>Gode priser hver dag, hele uken.</p>
+  </article>
 </section>
+
 {% endblock %}
+
 
 
