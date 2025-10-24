@@ -1,21 +1,25 @@
 {% extends "base.html" %}
 {% block title %}Hjem • Akademiets kantine{% endblock %}
-
 {% block content %}
-<section class="hero" style="--hero:url('{{ url_for('static', filename='kantine.jpeg') }}')">
+
+<section class="hero"
+  style="background-image: linear-gradient(rgba(8,11,18,.55), rgba(8,11,18,.55)),
+          url('{{ url_for('static', filename='kantine.jpeg') }}');">
   <div class="hero__inner">
     <p class="eyebrow">Velkommen!</p>
     <h1>Akademiets skolekantine</h1>
     <p class="lead">God og rimelig mat – se ukens meny, faste varer og kontaktinformasjon.</p>
 
-    <div class="actions">
-      <a class="btn btn-primary" href="{{ url_for('meny') }}">Se ukens meny</a>
-      <a class="btn" href="{{ url_for('varer_side') }}">Faste varer</a>
-      <a class="btn" href="{{ url_for('kontakt') }}">Kontakt</a>
+    <div class="hero__cta">
+      <a class="btn" href="{{ url_for('meny') }}">Se ukens meny</a>
+      <a class="btn btn--ghost" href="{{ url_for('varer_side') }}">Faste varer</a>
+      <a class="btn btn--ghost" href="{{ url_for('kontakt') }}">Kontakt</a>
     </div>
   </div>
 </section>
+
 {% endblock %}
+
 
 
 
